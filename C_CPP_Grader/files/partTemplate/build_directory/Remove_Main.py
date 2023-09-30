@@ -33,8 +33,13 @@ files = [
     for x in os.listdir(".")
     if (
         os.path.isfile(os.path.join(".", x))
-        and x.endswith(".c")
-        and not x.lower().endswith("_.c")
+        and (x.lower().endswith(".c") 
+             or x.lower().endswith(".cpp") 
+             or x.lower().endswith(".h")
+             )
+        and not (x.lower().endswith("_.c") 
+                 or x.lower().endswith("_.cpp")
+                 )
     )
 ]
 regexpr = re.compile(r"\bmain[\s]?\(")
