@@ -281,6 +281,7 @@ def main(coursera_part_id):
             break
 
     # Calculate correct fractional score if number of testcases is less than 1/PENALTY
+    test_number=test_number-1
     if 0 < score < 1 and PENALTY > 0 and test_number <= (1 / PENALTY):
         score = max(0.0, (test_number - (1 - score) / PENALTY) / test_number)
     if score > GOOD_SCORE:
@@ -292,7 +293,7 @@ def main(coursera_part_id):
 
 
 if __name__ == '__main__':
-    print("Version: 1.3")
+    print("Version: 1.4")
     try:
         part_id = os.environ['partId']
     except KeyError as e:
